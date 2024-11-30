@@ -1,1 +1,11 @@
+# Template PDF file from the report
 */template.pdf
+
+# mypy cache directory
+.mypy_cache
+
+# Ruff cache directory
+.ruff_cache/
+
+# vscode directory
+.vscode/*

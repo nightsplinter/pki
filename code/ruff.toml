@@ -1,0 +1,36 @@
+# This is a configuration file for Ruff, a Python code formatter and linter.
+
+# Set the maximum line length to 80 characters.
+line-length = 80
+
+# Set the cache directory to `~/.cache/ruff`.
+cache-dir = "~/.cache/ruff"
+
+# Include only Python files.
+include = ["**/*.ipynb", "**/*.py"]
+
+[lint]
+# Enable all all rules.
+select = [
+    "ALL",
+]
+
+ignore = [
+    "COM812", # Need to be ignored because of the `line-length` rule.
+    "ISC001", # Need to be ignored because of the `line-length` rule.
+    "ANN101", # Need to be ignored because otherwise it will conflict with the `self` argument.
+    "ERA001", # Need to be ignored because otherwise I can't write `#` comments.
+]
+
+# Add the `line-too-long` rule to the enforced rule set
+extend-select = ["E501"]
+
+[lint.pydocstyle]
+convention = "google"
+
+# Single line for imports.
+[lint.isort]
+force-single-line = true
+
+# Set imports order to `from-imports-first`.
+from-first = true

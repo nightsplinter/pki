@@ -20,6 +20,7 @@ git clone https://git.thm.de/pswl33/pki.git
 ## Projektstruktur
 
 - [code](/code): Code des Projekts
+- [code/data](code/data): Datensätze des Projekts
 - [doc](/doc): Report des Projekts
 - [journal](/journal): Laborjournal des Projekts
 
@@ -37,3 +38,32 @@ Das Laborjournal des Projekts befindet sich im Verzeichnis [journal](/journal) u
 2. Typst-Datei öffnen
 3. Datei speichern (Strg + S oder Cmd + S)
 4. PDF-Datei wird automatisch erstellt und im Ordner `doc` abgelegt
+
+## Pre-Commit einrichten
+
+1. Der folgende Befehl installiert den Pre-Commit-Hook
+
+```bash
+cd code && pip install -r requirements-dev.txt && cd .. && pre-commit install
+```
+
+Durch den Pre-Commit-Hook werden automatisch Formatierungen, Linting-Regeln vor jedem Commit ausgeführt.
+Die Konfiguration befindet sich in der Datei [.pre-commit-config.yaml](/.pre-commit-config.yaml) und die
+Regeln von [Ruff](https://docs.astral.sh/ruff/) für den Linter und Formatter in der Datei [code/.ruff.toml](code/ruff.toml).
+
+# Checkstyle Commands
+
+1. Linting-Regeln überprüfen
+```bash
+	cd code && ruff check
+```
+
+2. Linting-Regeln überprüfen und automatisch beheben
+```bash
+	cd code && ruff check --fix
+```
+
+3. Code formatieren
+```bash
+	cd code && ruff format
+```
