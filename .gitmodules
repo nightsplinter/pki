@@ -1,0 +1,3 @@
+[submodule "code/data/virufy-data"]
+	path = code/data/virufy-data
+	url = https://github.com/virufy/virufy-data.git
