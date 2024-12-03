@@ -18,8 +18,8 @@ select = [
 ignore = [
     "COM812", # Need to be ignored because of the `line-length` rule.
     "ISC001", # Need to be ignored because of the `line-length` rule.
-    "ANN101", # Need to be ignored because otherwise it will conflict with the `self` argument.
     "ERA001", # Need to be ignored because otherwise I can't write `#` comments.
+    "T201", # Need to be ignored because otherwise print statements will be flagged.
 ]
 
 # Add the `line-too-long` rule to the enforced rule set
