@@ -2,12 +2,10 @@
 
 Dieses Projekt wurde im Rahmen des Praktikums Künstliche Intelligenz (PKI) an der Technischen Hochschule Mittelhessen (THM) erstellt. Ziel ist es, ein Modell zu entwickeln, das anhand von einer Husten-Audioaufnahme eine Covid-19 Diagnose durchführt.
 
-## Mögliche Datensätze
+## Verwendete Datensätze
 
-- [COUGHVID](https://c4science.ch/diffusion/10770/)
 - [Virufy](https://github.com/virufy/virufy-data)
-- [Coswara](https://www.kaggle.com/datasets/sarabhian/coswara-dataset-heavy-cough)
-- [Cambridge University](https://www.covid-19-sounds.org/en/blog/neurips_dataset.html)
+- [Coswara](https://github.com/iiscleap/Coswara-Data)
 
 ## Projekt starten
 
@@ -17,10 +15,23 @@ Dieses Projekt wurde im Rahmen des Praktikums Künstliche Intelligenz (PKI) an d
 git clone https://git.thm.de/pswl33/pki.git
 ```
 
+2. Abhängigkeiten installieren
+
+```bash
+cd code && pip install -r requirements.txt
+```
+
+3. Coswara-Datensatz entpacken
+
+[extract_data.py](datasets/Coswara-Data/extract_data.py) ausführen, um den Coswara-Datensatz zu entpacken.
+
+Im Verzeichnis [datasets/Coswara-Data](datasets/Coswara-Data) sollte sich nun der Ordner `Extracted_data` mit den entpackten Dateien befinden.
+
+
 ## Projektstruktur
 
 - [code](/code): Code des Projekts
-- [code/data](code/data): Datensätze des Projekts
+- [datasets](datasets): Datensätze des Projekts
 - [doc](/doc): Report des Projekts
 - [journal](/journal): Laborjournal des Projekts
 
