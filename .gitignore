@@ -9,3 +9,9 @@
 
 # vscode directory
 .vscode/*
+
+# wandb directory
+wandb/
+
+# models directory
+models/
