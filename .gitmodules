@@ -1,3 +1,6 @@
 [submodule "code/data/virufy-data"]
 	path = code/data/virufy-data
 	url = https://github.com/virufy/virufy-data.git
+[submodule "code/data/Coswara-Data"]
+	path = code/data/Coswara-Data
+	url = https://github.com/iiscleap/Coswara-Data.git
