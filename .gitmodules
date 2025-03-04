@@ -4,3 +4,6 @@
 [submodule "datasets/Coswara-Data"]
 	path = datasets/Coswara-Data
 	url = https://github.com/iiscleap/Coswara-Data.git
+[submodule "datasets/Coughvid/virufy-cdf-coughvid"]
+	path = datasets/Coughvid/virufy-cdf-coughvid
+	url = https://github.com/virufy/virufy-cdf-coughvid.git
