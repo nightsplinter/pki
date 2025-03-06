@@ -16,7 +16,6 @@ TARGET_SHAPE = (128, 128)
 Die Zielgröße (128x128 Pixel) des MFCC.
 """
 
-
 def get_valid_coswara_folder_names() -> tuple:
     """Gibt die gültigen Namen der Ordner zurück.
 
@@ -120,7 +119,7 @@ def get_mfccs_from_coswara_audio_files(
                         if not Path.exists(p_full_file_path):
                             error = (
                                 "Die Datei existiert nicht unter: "
-                                + full_file_path
+                                + file
                             )
                             print(error)
 
@@ -128,6 +127,39 @@ def get_mfccs_from_coswara_audio_files(
                         if converted is not None:
                             converted_files.append(converted)
                             labels.append(current_label)
+
+    return np.array(converted_files, dtype=np.float32), np.array(
+        labels, dtype=np.int32
+    )
+
+def get_mfccs_from_coughvid_audio_files(folder_names: str, *, is_positive: bool) -> tuple:
+    """Konvertiert die Audio-Dateien von Coughvid in MFCCs.
+
+    :param folder_names: Liste der Ordner-Namen
+    :param is_positive: True, wenn die Audio-Datei Covid-19 positiv ist
+    :return: MFCCs und Labels
+    """
+    converted_files = []
+    labels = []
+    current_label = 1 if is_positive else 0
+    path = Path.resolve(Path("../../datasets/Coughvid/converted/"))
+    main_folder_path = path / folder_names
+
+    for file in os.listdir(main_folder_path):
+        full_file_path = main_folder_path / file
+        p_full_file_path = Path(full_file_path)
+
+        if not Path.exists(p_full_file_path):
+            error = (
+                "Die Datei existiert nicht unter: "
+                + file
+            )
+            print(error)
+
+        converted = convert_audio_file_to_mfcc(p_full_file_path)
+        if converted is not None:
+            converted_files.append(converted)
+            labels.append(current_label)
 
     return np.array(converted_files, dtype=np.float32), np.array(
         labels, dtype=np.int32
@@ -143,13 +175,40 @@ def convert_audio_file_to_mfcc(path: Path) -> np.ndarray:
     :param path: Pfad zu der Audio-Datei
     :return: MFCCs in fester Größe und None (Platzhalter für Labels)
     """
-    try:
-        # Lade die Audiodatei (Original-Sampling-Rate beibehalten)
-        audio_data, sample_rate = librosa.load(path, sr=None)
+    # Lade die Audiodatei (Original-Sampling-Rate beibehalten sr=None)
+    audio_data, sample_rate = librosa.load(path, sr=None)
 
-        if len(audio_data) == 0:
-            # raise ValueError(f"Die Audiodatei ist leer: {path}")
-            return None
+    # Berechne die MFCCs
+    mfcc = librosa.feature.mfcc(y=audio_data, sr=sample_rate)
+
+    if len(audio_data) == 0:
+        return None
+
+    # Füge eine Kanal-Dimension hinzu (Höhe, Breite, Kanal)
+    mfcc = np.expand_dims(mfcc, axis=-1)
+
+    # Skaliere die MFCCs auf die gewünschte Größe (128x128 Pixel)
+    mfcc = tf.image.resize(mfcc, TARGET_SHAPE)
+
+    # MFCCs entlang der Höhe oder Breite mitteln
+    # um es in eine 1D-Darstellung zu transformieren
+    # Mittelwert entlang der Höhe
+    return np.mean(mfcc, axis=0)
+
+
+
+
+    # Der nachfolgende Code war ein Versuch, die Parameter für die MFCCs
+    # zu optimieren. Leider konnte ich keine Verbesserung feststellen,
+    # weshalb der Code hier nur noch als Nachweis dient.
+
+    # try:
+    #     # Lade die Audiodatei (Original-Sampling-Rate beibehalten)
+    #     audio_data, sample_rate = librosa.load(path, sr=None)
+
+    #     if len(audio_data) == 0:
+    #         # raise ValueError(f"Die Audiodatei ist leer: {path}")
+    #         return None
 
         # Berechne die MFCCs
         # Koeffizienten(n_mfcc): Legt die Anzahl der zu berechnenden MFCCs fest.
@@ -158,24 +217,28 @@ def convert_audio_file_to_mfcc(path: Path) -> np.ndarray:
         # Hop-Länge (hop_length): Gibt an, wie viele Samples zwischen den Frames
         # verschoben werden, was die Schrittweite angibt.
         # Grundlage: https://www.researchgate.net/publication/383120141_Optimising_MFCC_parameters_for_the_automatic_detection_of_respiratory_diseases #noqa: E501
-        mfcc = librosa.feature.mfcc(
-            y=audio_data, sr=sample_rate, n_mfcc=30, n_fft=25, hop_length=5
-        )
+        # mfcc = librosa.feature.mfcc(
+        #     y=audio_data, sr=sample_rate, n_mfcc=30, n_fft=25, hop_length=5
+        # )
 
-        # Füge eine Kanal-Dimension hinzu (1 für Graustufen)
-        mfcc = np.expand_dims(mfcc, axis=-1)
+    #     mfcc = librosa.feature.mfcc(
+    #         y=audio_data, sr=sample_rate
+    #     )
 
-        # Skaliere die MFCCs auf die gewünschte Zielgröße
-        mfcc = tf.image.resize(mfcc, TARGET_SHAPE)
+    #     # Füge eine Kanal-Dimension hinzu (1 für Graustufen)
+    #     mfcc = np.expand_dims(mfcc, axis=-1)
 
-        # Konvertiere die MFCCs in ein Numpy-Array
-        mfcc = mfcc.numpy().astype(np.float32)
+    #     # Skaliere die MFCCs auf die gewünschte Zielgröße
+    #     mfcc = tf.image.resize(mfcc, TARGET_SHAPE)
 
-        # MFCCs entlang der Höhe oder Breite mitteln
-        # um es in eine 1D-Darstellung zu transformieren
-        # Mittelwert entlang der Höhe
-        return np.mean(mfcc, axis=0)
+    #     # Konvertiere die MFCCs in ein Numpy-Array
+    #     mfcc = mfcc.numpy().astype(np.float32)
 
-    except Exception as e:  # noqa: BLE001
-        print(f"Fehler beim Verarbeiten der Datei {path}: {e}")
-        return None
+    #     # MFCCs entlang der Höhe oder Breite mitteln
+    #     # um es in eine 1D-Darstellung zu transformieren
+    #     # Mittelwert entlang der Höhe
+    #     return np.mean(mfcc, axis=0)
+
+    # except Exception as e:  # noqa: BLE001
+    #     print(f"Fehler beim Verarbeiten der Datei {path}: {e}")
+    #     return None
