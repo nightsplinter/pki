@@ -1,11 +1,12 @@
 # Praktikum Künstliche Intelligenz (PKI)
 
-Dieses Projekt wurde im Rahmen des Praktikums Künstliche Intelligenz (PKI) an der Technischen Hochschule Mittelhessen (THM) erstellt. Ziel ist es, ein Modell zu entwickeln, das anhand von einer Husten-Audioaufnahme eine Covid-19 Diagnose durchführt.
+Dieses Projekt wurde im Rahmen des Praktikums Künstliche Intelligenz (PKI) an der Technischen Hochschule Mittelhessen (THM) erstellt. Ziel ist es, Modelle zu entwickeln, die anhand von Husten-Audioaufnahme eine Covid-19 Diagnose durchführen können.
 
 ## Verwendete Datensätze
 
 - [Virufy](https://github.com/virufy/virufy-data)
 - [Coswara](https://github.com/iiscleap/Coswara-Data)
+- [COUGHVID Kaggle Dataset](https://www.kaggle.com/datasets/andrewmvd/covid19-cough-audio-classification)
 
 ## Projekt starten
 
@@ -23,10 +24,15 @@ cd code && pip install -r requirements.txt
 
 3. Coswara-Datensatz entpacken
 
-[extract_data.py](datasets/Coswara-Data/extract_data.py) ausführen, um den Coswara-Datensatz zu entpacken.
+[extract_data.py](./datasets/Coswara-Data/extract_data.py) ausführen, um den Coswara-Datensatz zu entpacken.
 
-Im Verzeichnis [datasets/Coswara-Data](datasets/Coswara-Data) sollte sich nun der Ordner `Extracted_data` mit den entpackten Dateien befinden.
+Im Verzeichnis [datasets/Coswara-Data](./datasets/Coswara-Data) sollte sich nun der Ordner `Extracted_data` mit den entpackten Dateien befinden.
 
+4. COUGHVID-Datensatz umwandeln
+
+[convert_data.py](./code/convert_audio_files.ipynb) ausführen, um den COUGHVID-Datensatz umzuwandeln.
+
+Im Verzeichnis [datasets/Coughvid/converted](datasets/Coughvid/) sollte sich nun der Ordner `converted` mit den umgewandelten Dateien befinden.
 
 ## Projektstruktur
 
