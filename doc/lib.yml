@@ -1,97 +1,153 @@
 # This file contains the bibliographic information.
 # Hayagriva YAML File Format
 
+heise:
+  type: web
+  titel: "KI soll Covid-19-Infizierte am Husten erkennen"
+  publisher: "Heise"
+  date: "2020-11-02"
+  author: "Oliver Bünte"
+  url:
+    value: "https://www.heise.de/news/KI-soll-COVID-19-Infizierte-am-Husten-erkennen-4945746.html"
+    date: "2024-11-25"
+
+orginal:
+  type: web
+  titel: "Algorithm spots 'Covid cough' inaudible to humans"
+  publisher: "BBC"
+  author: "Zoe Kleinman"
+  date: "2020-11-02"
+  url:
+    value: "https://www.bbc.com/news/technology-54780460"
+    date: "2024-11-25"
+
+deu:
+  type: web
+  titel: "SARS-CoV-2"
+  publisher: "Deutsches Zentrum für Infektionsforschung"
+  url:
+    value: "https://www.dzif.de/de/glossar/sars-cov-2"
+    date: "2024-11-25"
+
+tages:
+  type: web
+  titel: "WHO spricht von Corona-Pandemie"
+  publisher: "Tagesschau"
+  date: "2020-03-11"
+  url:
+    value: "https://www.tagesschau.de/ausland/europa/coronavirus-317.html"
+    date: "2024-11-25"
+
+mdr:
+  type: web
+  titel: "Corona-Pandemie endet – Deutschland erlebt erste Endemie"
+  publisher: "MDR"
+  date: "2022-12-27"
+  url:
+    value: "https://www.mdr.de/wissen/ende-corona-pandemie-weltweit-zweitausenddreiundzwanzig-deutschland-endemischer-zustand-100.html"
+    date: "2024-11-25"
+
+infektionsschutz:
+  type: web
+  titel: "Infektion mit dem Coronavirus: Symptome und Krankheitsverlauf"
+  publisher: "Bundesinstitut für Öffentliche Gesundheit"
+  url:
+    value: "https://www.infektionsschutz.de/coronavirus/basisinformationen/symptome-und-krankheitsverlauf/"
+    date: "2024-11-25"
+
 who:
   type: web
+  titel: "Report of the WHO-China Joint Mission on Coronavirus Disease 2019 (COVID-19)"
+  publisher: "World Health Organization"
+  date: "2020-02"
   url:
     value: https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf
+    date: "2024-11-25"
 
 cough:
   type: web
   titel: "Cough Audio Analysis for COVID-19 Diagnosis"
+  publisher: "N COMPUT. SCI. 4, 125"
+  author: "Teghdeep Kapoor, Tanya Pandhi & Bharat Gupta"
+  date: "2023"
   url:
-    value: "https://www.dzif.de/de/glossar/sars-cov-2"
-    date: "2025-01-03"
+    value: "https://doi.org/10.1007/s42979-022-01522-1"
+    date: "2024-11-25"
 
 sound:
   type: web
   titel: "COVID-19 detection using cough sound analysis and deep learning algorithms"
+  authors: [
+    "Sunil Rao",
+    "Vivek Sivaraman Narayanaswamy",
+    "Michael Esposito",
+    "Jayaraman J. Thiagarajan",
+    "Andreas Spanias"
+  ]
+  date: "2021-12"
   url:
-    value: "https://www.dzif.de/de/glossar/sars-cov-2"
+    value: "http://dx.doi.org/10.3233/IDT-210206"
+
+research:
+  type: web
+  titel: "High accuracy classification of COVID-19 coughs using Mel-frequency cepstral coefficients and a Convolutional Neural Network with a use case for smart home devices"
+  date: "2020-08"
+  author: "Rob Dunne, Tim Morris, Simon Harper"
+  url:
+    value: "https://doi.org/10.21203/rs.3.rs-63796/v1"
     date: "2025-01-03"
-
-data:
-  type: web
-  titel: "COUGHVID"
-  url:
-    value: "https://c4science.ch/diffusion/10770/"
-
-virufy:
-  type: web
-  titel: "Virufy"
-  url:
-    value: "https://github.com/virufy/virufy-data"
-
-cu:
-  type: web
-  titel: ""
-  url:
-    value: "https://www.covid-19-sounds.org/en/blog/neurips_dataset.html"
-
-
-paper:
-  type: web
-  titel: "Cough Audio Analysis for COVID-19 Diagnosis"
-  url:
-    value: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9791965/"
-
-deu:
-  type: web
-  titel: "COVID-19 detection using cough sound analysis and deep learning algorithms"
-  url:
-    value: "https://www.dzif.de/de/glossar/sars-cov-2"
-    # date: "2025-01-03"
-
-tages:
-  type: web
-  titel: "COVID-19 detection using cough sound analysis and deep learning algorithms"
-  url:
-    value: "https://www.tagesschau.de/ausland/europa/coronavirus-317.html"
-
-mdr:
-  type: web
-  titel: "COVID-19 detection using cough sound analysis and deep learning algorithms"
-  url:
-    value: "https://www.mdr.de/wissen/ende-corona-pandemie-weltweit-zweitausenddreiundzwanzig-deutschland-endemischer-zustand-100.html"
-
-infektionsschutz:
-  type: web
-  titel: "COVID-19 detection using cough sound analysis and deep learning algorithms"
-  url:
-    value: "https://www.infektionsschutz.de/coronavirus/basisinformationen/symptome-und-krankheitsverlauf/"
-
-
-orginal:
-  type: web
-  titel: "COVID-19 detection using cough sound analysis and deep learning algorithms"
-  url:
-    value: "https://www.bbc.com/news/technology-54780460"
-
-heise:
-  type: web
-  titel: "COVID-19 detection using cough sound analysis and deep learning algorithms"
-  url:
-    value: "https://www.heise.de/news/KI-soll-COVID-19-Infizierte-am-Husten-erkennen-4945746.html"
-
-goo:
-  type: web
-  titel: "COVID-19 detection using cough sound analysis and deep learning algorithms"
-  url:
-    value: "https://www.heise.de/news/Frueherkennung-Neue-Google-KI-soll-Krankheiten-hoeren-koennen-9853725.html"
 
 mit:
   type: web
-  titel: "COVID-19 detection using cough sound analysis and deep learning algorithms"
+  titel: "COVID-19 Artificial Intelligence Diagnosis using only Cough Recordings"
+  date: "2020-09-30"
+  author: "Jordi Laguarta, Ferran Hueto, Brian Subirana"
   url:
     value: "https://www.embs.org/ojemb/articles/covid-19-artificial-intelligence-diagnosis-using-only-cough-recordings/"
+    date: "2024-11-30"
+
+google:
+  type: web
+  titel: "This AI model is helping researchers detect disease based on coughs"
+  date: "2024-08-19"
+  author: "Shravya Shetty"
+  url:
+    value: "https://blog.google/technology/health/ai-model-cough-disease-detection/"
+    date: "2025-02-28"
+
+cam:
+  type: web
+  titel: "Cough Against COVID: Evidence from a Large-scale Audio Dataset"
+  date: "2021-11-11"
+  publisher: "Cambridge University"
+  url:
+    value: "https://www.covid-19-sounds.org/en/blog/neurips_dataset.html"
+    date: "2024-12-15"
+
+virufydata:
+  type: web
+  titel: "Virufy Github Repository"
+  url:
+    value: "https://github.com/virufy/virufy_data"
+
+coswaraData:
+  type: web
+  titel: "Coswara Data Github Repository"
+  url:
+    value: "https://github.com/iiscleap/Coswara-Data"
+
+coughvidData:
+  type: web
+  titel: "COUGHVID Kaggle Dataset"
+  url:
+    value: "https://www.kaggle.com/datasets/andrewmvd/covid19-cough-audio-classification"
+
+mfcc:
+  type: web
+  titel: "What, how, and why of MFCCs"
+  date: "2020-08-20"
+  author: "Neeraj Sharma"
+  url:
+    value: "https://iiscleap.github.io/coswara-blog/coswara/tutorial/2020/08/20/mfcc.html"
+    date: "2025-02-28"
 
