@@ -1,3 +1,7 @@
 librosa
 numpy
 tensorflow
+torch
+torchvision
+transformers
+datasets
