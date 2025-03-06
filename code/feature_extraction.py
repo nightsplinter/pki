@@ -16,6 +16,7 @@ TARGET_SHAPE = (128, 128)
 Die Zielgröße (128x128 Pixel) des MFCC.
 """
 
+
 def get_valid_coswara_folder_names() -> tuple:
     """Gibt die gültigen Namen der Ordner zurück.
 
@@ -117,10 +118,7 @@ def get_mfccs_from_coswara_audio_files(
                         p_full_file_path = Path(full_file_path)
 
                         if not Path.exists(p_full_file_path):
-                            error = (
-                                "Die Datei existiert nicht unter: "
-                                + file
-                            )
+                            error = "Die Datei existiert nicht unter: " + file
                             print(error)
 
                         converted = convert_audio_file_to_mfcc(p_full_file_path)
@@ -132,7 +130,10 @@ def get_mfccs_from_coswara_audio_files(
         labels, dtype=np.int32
     )
 
-def get_mfccs_from_coughvid_audio_files(folder_names: str, *, is_positive: bool) -> tuple:
+
+def get_mfccs_from_coughvid_audio_files(
+    folder_names: str, *, is_positive: bool
+) -> tuple:
     """Konvertiert die Audio-Dateien von Coughvid in MFCCs.
 
     :param folder_names: Liste der Ordner-Namen
@@ -150,10 +151,7 @@ def get_mfccs_from_coughvid_audio_files(folder_names: str, *, is_positive: bool)
         p_full_file_path = Path(full_file_path)
 
         if not Path.exists(p_full_file_path):
-            error = (
-                "Die Datei existiert nicht unter: "
-                + file
-            )
+            error = "Die Datei existiert nicht unter: " + file
             print(error)
 
         converted = convert_audio_file_to_mfcc(p_full_file_path)
@@ -195,9 +193,6 @@ def convert_audio_file_to_mfcc(path: Path) -> np.ndarray:
     # Mittelwert entlang der Höhe
     return np.mean(mfcc, axis=0)
 
-
-
-
     # Der nachfolgende Code war ein Versuch, die Parameter für die MFCCs
     # zu optimieren. Leider konnte ich keine Verbesserung feststellen,
     # weshalb der Code hier nur noch als Nachweis dient.
@@ -210,16 +205,16 @@ def convert_audio_file_to_mfcc(path: Path) -> np.ndarray:
     #         # raise ValueError(f"Die Audiodatei ist leer: {path}")
     #         return None
 
-        # Berechne die MFCCs
-        # Koeffizienten(n_mfcc): Legt die Anzahl der zu berechnenden MFCCs fest.
-        # Framelänge (n_fft): Gibt die Anzahl der Samples pro Frame an und
-        # bestimmt die Framelänge.
-        # Hop-Länge (hop_length): Gibt an, wie viele Samples zwischen den Frames
-        # verschoben werden, was die Schrittweite angibt.
-        # Grundlage: https://www.researchgate.net/publication/383120141_Optimising_MFCC_parameters_for_the_automatic_detection_of_respiratory_diseases #noqa: E501
-        # mfcc = librosa.feature.mfcc(
-        #     y=audio_data, sr=sample_rate, n_mfcc=30, n_fft=25, hop_length=5
-        # )
+    # Berechne die MFCCs
+    # Koeffizienten(n_mfcc): Legt die Anzahl der zu berechnenden MFCCs fest.
+    # Framelänge (n_fft): Gibt die Anzahl der Samples pro Frame an und
+    # bestimmt die Framelänge.
+    # Hop-Länge (hop_length): Gibt an, wie viele Samples zwischen den Frames
+    # verschoben werden, was die Schrittweite angibt.
+    # Grundlage: https://www.researchgate.net/publication/383120141_Optimising_MFCC_parameters_for_the_automatic_detection_of_respiratory_diseases #noqa: E501
+    # mfcc = librosa.feature.mfcc(
+    #     y=audio_data, sr=sample_rate, n_mfcc=30, n_fft=25, hop_length=5
+    # )
 
     #     mfcc = librosa.feature.mfcc(
     #         y=audio_data, sr=sample_rate
