@@ -39,15 +39,11 @@ Im Verzeichnis [datasets/Coughvid/converted](datasets/Coughvid/) sollte sich nun
 - [code](/code): Code des Projekts
 - [datasets](datasets): Datensätze des Projekts
 - [doc](/doc): Report des Projekts
-- [journal](/journal): Laborjournal des Projekts
 
 ## Report
 
 Im Verzeichnis [doc](/doc) befindet sich der Report des Projekts, der die Ergebnisse und den Verlauf des Projekts dokumentiert. Der aktuelle Stand ist in der Datei [report.pdf](/doc/report.pdf) zu finden. Der Report wurde mit [typst](https://typst.app) erstellt.
 
-## Laborjournal
-
-Das Laborjournal des Projekts befindet sich im Verzeichnis [journal](/journal) und stellt eine formlose Dokumentation des Projektverlaufs dar. Der aktuelle Stand ist in der Datei [journal.pdf](/journal/journal.pdf) zu finden. Das Laborjournal wurde mit [typst](https://typst.app) erstellt.
 
 ### PDF-Datei erstellen (VsCode)
 

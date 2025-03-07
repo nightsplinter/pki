@@ -3,7 +3,7 @@
 #show: arkheion.with(
   title: "Akustische Covid-Diagnose durch Husten",
   authors: (
-    (name: "Paula Schwalm", email: "paula.schwalm@mni.thm.de", affiliation: "Technische Hochschule Mittelhessen",
+    (name: "Paula Schwalm (Matr.-Nr. 5600111)", email: "paula.schwalm@mni.thm.de", affiliation: "Technische Hochschule Mittelhessen",
     subject: "Praktikum Künstliche Intelligenz", semester: "Wintersemester 2024/2025"),
   ),
   abstract: [
